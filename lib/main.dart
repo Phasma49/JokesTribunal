@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: kDebugMode,
       theme: const MaterialTheme(TextTheme())
-          .light(), // Utilisation du thème clair
+          .light(), // Use light theme
       home: home(),
     );
   }

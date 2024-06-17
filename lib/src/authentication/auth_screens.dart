@@ -195,10 +195,10 @@ class _LogInScreenState extends State<LogInScreen> {
           ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(message: "Utilisateur désactivé"));
           break;
         case "user-not-found":
-          ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(message: "Utilisateur introubable"));
+          ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(message: "Utilisateur introuvable"));
           break;
         case "wrong-password":
-          ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(message: "Mot de passe érroné"));
+          ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(message: "Mot de passe erroné"));
           break;
       }
     }catch (e) {

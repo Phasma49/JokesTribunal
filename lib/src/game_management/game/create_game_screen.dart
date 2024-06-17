@@ -58,7 +58,7 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
                     return "Vous ne pouvez pas inviter 2 fois la même personne";
                   }
                 } else {
-                  return "Cette chaine de caractère ne ressemble pas à un identifiant utilisateur";
+                  return "Cette chaîne de caractères ne ressemble pas à un identifiant utilisateur";
                 }
               },
               controller: playerId,
@@ -129,6 +129,7 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
   final TextEditingController _gameName = TextEditingController();
   final TextEditingController _creatorPseudo = TextEditingController();
   final TextEditingController _startingScore = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -148,9 +149,9 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
                     child: TextFormField(
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        return value!.trim().length >= 3
+                        return value!.trim().length >= Game.gameNameMinimumLength
                             ? null
-                            : "Choisissez un nom de partie d'au moins 3 caractères s'il vous plait";
+                            : "Choisissez un nom de partie d'au moins ${Game.gameNameMinimumLength} caractères s'il vous plait";
                       },
                       controller: _gameName,
                       decoration: const InputDecoration(
@@ -158,7 +159,7 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
                         labelText: "Nom de la partie",
                         border: OutlineInputBorder(),
                         hintText:
-                            "Example : 'La partie de vos rêves' (Minimum 3 caractères)",
+                            "Exemple : 'La partie de vos rêves' (Minimum ${Game.gameNameMinimumLength} caractères)",
                       ),
                       keyboardType: TextInputType.name,
                       textCapitalization: TextCapitalization.sentences,
@@ -177,9 +178,9 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
                           signed: false, decimal: false),
                       inputFormatters: [
                         FilteringTextInputFormatter.allow(RegExp(
-                            r'^[1-9]\d*$')), // Autoriser les chiffres seulement
+                            r'^[1-9]\d*$')), // Allow numbers only
                         FilteringTextInputFormatter.deny(RegExp(
-                            r'[-,.]')), // Interdire les signes négatifs, les virgules et les points
+                            r'[-,.]')), // Forbid negative signs, comas and points
                       ],
                       controller: _startingScore,
                       decoration: const InputDecoration(
@@ -193,16 +194,16 @@ class _CreateGameScreenState extends State<CreateGameScreen> {
                     child: TextFormField(
                       textInputAction: TextInputAction.next,
                       validator: (value) {
-                        return value!.trim().length >= 5
+                        return value!.trim().length >= Invitation.pseudoMinimumLength
                             ? null
-                            : "Choisissez un pseudo d'au moins 5 caractères s'il vous plait";
+                            : "Choisissez un pseudo d'au moins ${Invitation.pseudoMinimumLength} caractères s'il vous plait";
                       },
                       controller: _creatorPseudo,
                       decoration: const InputDecoration(
                           prefixIcon: Icon(Icons.person),
                           labelText: "Votre pseudo",
                           border: OutlineInputBorder(),
-                          hintText: "Minimum 5 caractères"),
+                          hintText: "Minimum ${Invitation.pseudoMinimumLength} caractères"),
                     ),
                   ),
                   Padding(

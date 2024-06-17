@@ -16,7 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   User currentUser = FirebaseAuth.instance.currentUser!;
 
   final String changeNameLabel = "Modifier mon nom";
-  final String changeEmailAddressLabel = "Modifier mon adresse email";
+  final String changeEmailAddressLabel = "Modifier mon adresse mail";
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +108,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ),
           ListTile(
             leading: const Icon(Icons.mail),
-            title: Text("Email : ${currentUser.email}"),
+            title: Text("Adresse mail : ${currentUser.email}"),
             trailing: IconButton(
               tooltip: changeEmailAddressLabel,
                 onPressed: () {
@@ -139,7 +139,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       validator: (value) {
                                         return value ==
                                                 newEmailAddress.text.trim()
-                                            ? "Votre nouvelle adresse mail ne peut pas être identique avec votre ancienne adresse mail"
+                                            ? "Votre nouvelle adresse mail ne peut pas être identique à votre ancienne adresse mail"
                                             : null;
                                       },
                                       decoration: const InputDecoration(

@@ -12,7 +12,7 @@ import '../../classes/database_management/crud_operations.dart'
     as my_crud_operations;
 
 class UserNewInvitationListScreen extends StatefulWidget {
-  const UserNewInvitationListScreen({Key? key}) : super(key: key);
+  const UserNewInvitationListScreen({super.key});
 
   @override
   State<UserNewInvitationListScreen> createState() =>
@@ -70,7 +70,7 @@ class _UserNewInvitationListScreenState
       //There is no new invitation
       return const Center(
         child: Text(
-            "Vous n'avez pas de nouvelle invitation. Vous pouvez rafraîchir la page avec le bouton en haut à droite"),
+            "Vous n'avez pas de nouvelle invitation. Vous pouvez rafraîchir la page avec le bouton en haut à droite."),
       );
     } else {
       //Invitations are generated
@@ -92,7 +92,7 @@ class _UserNewInvitationListScreenState
                     children: [
                       ListTile(
                         title: Text(
-                            "Votre pseudo serrait : '${newInvitationsAndRelatedGames!.keys.elementAt(index).playerPseudo}'"),
+                            "Votre pseudo serait : '${newInvitationsAndRelatedGames!.keys.elementAt(index).playerPseudo}'"),
                       ),
                       ListTile(
                         title: Text(
@@ -286,7 +286,7 @@ class _UserAcceptedInvitationsScreenState
       //There is no accepted invitation
       return const Center(
         child: Text(
-            "Vous n'êtes enregistré dans aucune partie pour le moment. Acceptez une inviation ou créez une partie"),
+            "Vous n'êtes enregistré dans aucune partie pour le moment. Acceptez une inviation ou créez une partie."),
       );
     } else {
       //Invitations are generated

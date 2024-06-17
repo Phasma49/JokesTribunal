@@ -33,7 +33,7 @@ class Password {
       hasASpecialCharacter &&
       doesNotHaveASpecialCase;
 
-  Password([this.value = ""]); // Valeur par défaut pour le paramètre value
+  Password([this.value = ""]); // Default value is ""
 }
 
 class MyPasswordAnalyzerBox extends StatelessWidget {

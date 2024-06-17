@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Game {
+  static const int gameNameMinimumLength = 5;
+
   final String?
       gameId; // game's database id. Should not be provided when creating a game (automatically generated)
 

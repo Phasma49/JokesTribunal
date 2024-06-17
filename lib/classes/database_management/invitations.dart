@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Invitation {
+  static const int pseudoMinimumLength = 5;
+
   final String? invitationId;
 
   final String playerId;

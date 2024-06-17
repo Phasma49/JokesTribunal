@@ -145,7 +145,7 @@ class _GameScreenState extends State<GameScreen> {
       _sortGameAcceptedInvitationsByPlayerInGamePseudos();
       ScaffoldMessenger.of(context).showSnackBar(myWarningSnackBar(
           message:
-              "Tri impossible puisque tout les joueurs n'ont pas été jugés. "
+              "Tri impossible puisque tout les joueurs n'ont pas été jugés au moins une fois. "
               "Tri par ordre alphabétique effectué."));
     }
     return result;
@@ -281,7 +281,7 @@ class _GameScreenState extends State<GameScreen> {
                 ),
                 const TextSpan(
                     text: " points au début de la partie. "
-                        "Au fil du temps, vous pouvez juger les blagues des autres joueurs et les scores vonts ainsi évoluer. "
+                        "Au fil du temps, vous pouvez juger les blagues des autres joueurs et les scores vont ainsi évoluer. "
                         "Il n'y a pas de fin prévue à cette partie, vous pouvez atteindre un score faramineux ou au contraire tomber dans le négatif !\n\n"
                         "Quand vous voulez juger une blague, cliquez simplement sur le bouton en bas de l'écran."),
               ])),

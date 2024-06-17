@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jokes_tribunal/classes/snack_bars.dart';
 
 import '../../classes/database_management/crud_operations.dart';
 import 'authentication/auth_screens.dart';
@@ -70,7 +71,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                         title: const Text("Déconnexion"),
                         content: const Text(
                             "Êtes-vous sur de vouloir vous déconnecter ?\n\n"
-                            "Vous devrez vous re connecter pour accèder de nouveau à l'application."),
+                            "Vous devrez vous connecter de nouveau pour accèder à l'application."),
                         actions: [
                           TextButton(
                             onPressed: () {
@@ -91,8 +92,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                     }),
               ),
             ],
-            builder: (_, MenuController controller,
-                Widget? child) {
+            builder: (_, MenuController controller, Widget? child) {
               return IconButton(
                 tooltip: "Menu",
                 onPressed: () {
@@ -122,10 +122,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                 onPressed: () {
                   Clipboard.setData(ClipboardData(
                       text: FirebaseAuth.instance.currentUser!.uid));
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                        content: Text("Copié dans le presse papier !")),
-                  );
+                  mySuccessSnackBar(message: "Copié dans le presse papier !");
                 },
                 child: const Text("Copier votre identifiant utilisateur")),
             Padding(
@@ -143,7 +140,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   TextSpan(
                       text: "juger les blagues de vos amis",
                       style: TextStyle(fontWeight: FontWeight.bold)),
-                  TextSpan(text: ". Pour ce faire vous pouvez "),
+                  TextSpan(text: ". Pour ce faire, vous pouvez "),
                   TextSpan(
                       text: "créer une partie avec eux",
                       style: TextStyle(decoration: TextDecoration.underline)),
@@ -152,7 +149,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                   ),
                   TextSpan(
                       text:
-                          "enregistrer leurs meilleures (ou les pires) blagues dans la partie",
+                          "enregistrer leurs meilleures (ou pires) blagues dans la partie",
                       style: TextStyle(decoration: TextDecoration.underline)),
                   TextSpan(text: " en y attribuant un score.\n\nAttention ! "),
                   TextSpan(
@@ -161,7 +158,7 @@ class _HomePageScreenState extends State<HomePageScreen> {
                       style: TextStyle(decoration: TextDecoration.underline)),
                   TextSpan(
                       text:
-                          " Chaque joueur de la partie a le pouvoir de juger les autres et c'est vous qui choisissez le nombre de points gagnés ou perdus !")
+                          " Chaque joueur de la partie a le pouvoir de juger les autres et de choisir le nombre de points gagnés ou perdus !")
                 ],
               )),
             ),

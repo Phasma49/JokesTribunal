@@ -129,7 +129,7 @@ class AddPlayerToGameDialog extends StatelessWidget {
     final TextEditingController playerPseudo = TextEditingController();
 
     return AlertDialog(
-      title: const Text("Inviter quelqu'un à la partie"),
+      title: const Text("Inviter quelqu'un dans la partie"),
       content: SingleChildScrollView(
         child: Form(
           key: formKey,
@@ -146,10 +146,10 @@ class AddPlayerToGameDialog extends StatelessWidget {
                         if (isValidFirebaseUserId(value!.trim())) {
                           return null;
                         } else {
-                          return "Cette chaine de caractère ne ressemble pas à un identifiant";
+                          return "Cette chaîne de caractères ne ressemble pas à un identifiant";
                         }
                       } else {
-                        return "Veuillez entrer un ID utilisateur ou supprimer ce champs";
+                        return "Veuillez entrer un ID utilisateur ou supprimer ce champ";
                       }
                     },
                     controller: playerUid,
@@ -165,13 +165,14 @@ class AddPlayerToGameDialog extends StatelessWidget {
                   child: TextFormField(
                     textInputAction: TextInputAction.next,
                     validator: (value) {
-                      return value?.trim() != null && value!.trim().length >= 5
+                      return value?.trim() != null && value!.trim().length >= Invitation.pseudoMinimumLength
                           ? null
-                          : "Choisissez un pseudo d'au moins 5 caractères s'il vous plait";
+                          : "Choisissez un pseudo d'au moins ${Invitation.pseudoMinimumLength} caractères s'il vous plait";
                     },
                     controller: playerPseudo,
                     decoration: const InputDecoration(
                       labelText: "Pseudo",
+                      hintText: "Minimum ${Invitation.pseudoMinimumLength} caractères",
                       border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.person),
                     ),
@@ -274,8 +275,8 @@ class RemovePlayerOfGameDialog extends StatelessWidget {
                               "Retirer ${selectedPlayerInvitation?.playerPseudo} de la partie ?"),
                           content: Text(
                               "Êtes vous sûr de vouloir retirer ${selectedPlayerInvitation?.playerPseudo} de la partie ?\n\n"
-                              "Il ne pourra plus accèder à la partie sans y être ré invité. "
-                              "Les jugements qui lui ont été attribués seront supprimés également."),
+                              "${selectedPlayerInvitation?.playerPseudo} ne pourra plus accèder à la partie sans y être invité de nouveau.\n"
+                              "Les jugements qui lui ont été attribués seront également supprimés."),
                           actions: [
                             TextButton(
                                 onPressed: () => Navigator.pop(context),
@@ -293,15 +294,15 @@ class RemovePlayerOfGameDialog extends StatelessWidget {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                       mySuccessSnackBar(
                                           message:
-                                              "Joueur retiré de la partie !"));
+                                              "${selectedPlayerInvitation?.playerPseudo} retiré de la partie !"));
                                   Navigator.pop(context);
                                 },
-                                child: const Text("Oui, retirer"))
+                                child: const Text("Oui, retirer de la partie"))
                           ],
                         ));
               }
             },
-            child: const Text("Retirer cette personne"))
+            child: const Text("Retirer cette personne de la partie"))
       ],
     );
   }
@@ -331,7 +332,7 @@ class DeleteGameDialog extends StatelessWidget {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (_) => const UserAcceptedInvitationsScreen()));
             },
-            child: const Text("Oui, supprimer"))
+            child: const Text("Oui, supprimer la partie"))
       ],
     );
   }
@@ -377,7 +378,7 @@ class GameOwnerMenu extends StatelessWidget {
                             gameId: game.gameId!,
                             allGameInvitations: allGameInvitations!));
                   } else {
-                    allGameInvitationsIsNull;
+                    allGameInvitationsIsNull();
                   }
                 },
                 child: const Text("Retirer quelqu'un de la partie")),

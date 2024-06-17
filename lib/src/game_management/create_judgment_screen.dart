@@ -77,11 +77,11 @@ class _CreateJudgmentScreenState extends State<CreateJudgmentScreen> {
                     labelText: "Description de la blague",
                     border: OutlineInputBorder(),
                     hintText:
-                        "Ex : 'Tire sur mon doigt' (Minimum 10 caractères)",
+                        "Ex : 'Tire sur mon doigt' (Minimum ${Judgment.jokeDescriptionMinimumLength} caractères)",
                   ),
-                  validator: (value) => value!.length >= 10
+                  validator: (value) => value!.length >= Judgment.jokeDescriptionMinimumLength
                       ? null
-                      : "10 caractères minimum s'il vous plaît",
+                      : "${Judgment.jokeDescriptionMinimumLength} caractères minimum s'il vous plait",
                 ),
               ),
               Padding(

@@ -77,7 +77,7 @@ class _VerifMailScreenState extends State<VerifMailScreen>
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
-              "Inscirption réussie !",
+              "Inscription réussie !",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
@@ -85,14 +85,14 @@ class _VerifMailScreenState extends State<VerifMailScreen>
             padding: const EdgeInsets.all(8.0),
             child: Text(
                 "Maintenant que vous êtes inscrit sur l'application, il vous faut vérifier votre adresse mail.\n"
-                "Pour se faire, rien de plus simple, vous allez recevoir un mail vous demandant de valider votre adresse mail."
+                "Pour ce faire, rien de plus simple, vous allez recevoir un mail vous demandant de valider votre adresse mail."
                 "(Mail envoyé à l'adresse '${FirebaseAuth.instance.currentUser!.email}')"),
           ),
           const Padding(
             padding: EdgeInsets.all(8.0),
             child: Text(
                 "Si vous avez validé votre adresse mail et que vous n'êtes pas redirigé, cliquez sur le bouton de rafraîchissement en haut à droite de l'écran.\n"
-                "Si vous n'avez pas reçu le mail (vérifiez bien vos courriez indésirables), vous pouvez cliquer sur le bouton si dessous pour le renvoyer."),
+                "Si vous n'avez pas reçu le mail (vérifiez bien vos courriers indésirables), vous pouvez cliquer sur le bouton ci dessous pour le renvoyer."),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

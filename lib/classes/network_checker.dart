@@ -43,21 +43,21 @@ class _NetworkActivationDialogState extends State<NetworkActivationDialog> {
           Icon(Icons.signal_wifi_connected_no_internet_4),
         ],
       ),
-      title: const Text("Pas de connection à internet !"),
+      title: const Text("Pas de connexion à internet !"),
       content: const Column(
         children: [
           Text(
               "L'action que vous voulez réaliser nécessite une connexion à internet. "
-              "Veuillez activer vos données cellulaires ou votre connection WIFI."),
+              "Veuillez activer vos données cellulaires ou votre connexion WIFI."),
           Text(
-              "Cette pop-up ce fermera automatiquement quand une connection à internet sera détectée. "
-              "Vous pouvez fermer cette pop-up manuellement sans activer de connection à internet mais l'action que vous voulez réaliser pourrais ne pas s'effectuer.")
+              "Cette pop-up se fermera automatiquement quand une connexion à internet sera détectée. "
+              "Vous pouvez fermer cette pop-up manuellement sans activer de connexion à internet mais l'action que vous voulez réaliser pourrait ne pas s'effectuer.")
         ],
       ),
       actions: [
         TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Ne pas activer de connection à internet"))
+            child: const Text("Ne pas activer de connexion à internet"))
       ],
     );
   }

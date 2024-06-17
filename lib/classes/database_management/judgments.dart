@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Judgment {
+  static const jokeDescriptionMinimumLength = 10;
+
+
   final String? judgmentId;
 
   final String playerId;
